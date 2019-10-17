@@ -10,4 +10,9 @@ public class RobotController : MonoBehaviour {
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
         agent.destination = this.riftTransform.position;
     }
+
+    private void OnTriggerEnter(Collider other) {
+        if (other.tag == "Rift")
+            Destroy(gameObject);
+    }
 }
