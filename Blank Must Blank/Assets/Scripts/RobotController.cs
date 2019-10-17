@@ -1,15 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class RobotController : MonoBehaviour {
-    public Transform spawnPoint;
+    public Transform riftTransform;
 
     private void Start() {
-        this.Spawn();
-    }
-
-    public void Spawn() {
-        gameObject.transform.position = spawnPoint.transform.position;
+        NavMeshAgent agent = GetComponent<NavMeshAgent>();
+        agent.destination = this.riftTransform.position;
     }
 }

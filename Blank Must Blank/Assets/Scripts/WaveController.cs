@@ -48,13 +48,16 @@ public class WaveController : MonoBehaviour {
                 this.activeCoroutines = StartWave();
         }
         else {
-            this.waves[this.currentWave - 1].remainingTime -= Time.deltaTime;
-        }
+            if (this.waves[this.currentWave - 1].remainingTime > 0.0f) {
+                this.waves[this.currentWave - 1].remainingTime -= Time.deltaTime;
+            } else {
+                this.activeCoroutines.ForEach(c => StopCoroutine(c));
+                this.activeCoroutines.Clear();
 
-        if (this.waves[this.currentWave - 1].remainingTime <= 0.0f) {
-            this.activeCoroutines.ForEach(c => StopCoroutine(c));
-            this.activeCoroutines.Clear();
-            this.EnablePreparationPhase();
+                if (this.currentWave < this.waves.Count) {
+                    this.EnablePreparationPhase();
+                }
+            }
         }
     }
 
