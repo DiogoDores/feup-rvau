@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Rift
+  - Robot
   layers:
   - Default
   - TransparentFX

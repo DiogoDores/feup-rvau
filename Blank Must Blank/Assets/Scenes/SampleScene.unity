@@ -291,6 +291,80 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1001 &760156287
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8459501697236474799, guid: a7dc96b7d57fa734f84b10a2b3fd063a,
+        type: 3}
+      propertyPath: m_Name
+      value: Turret
+      objectReference: {fileID: 0}
+    - target: {fileID: 8459501697236474798, guid: a7dc96b7d57fa734f84b10a2b3fd063a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.592
+      objectReference: {fileID: 0}
+    - target: {fileID: 8459501697236474798, guid: a7dc96b7d57fa734f84b10a2b3fd063a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.877
+      objectReference: {fileID: 0}
+    - target: {fileID: 8459501697236474798, guid: a7dc96b7d57fa734f84b10a2b3fd063a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.354
+      objectReference: {fileID: 0}
+    - target: {fileID: 8459501697236474798, guid: a7dc96b7d57fa734f84b10a2b3fd063a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8459501697236474798, guid: a7dc96b7d57fa734f84b10a2b3fd063a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8459501697236474798, guid: a7dc96b7d57fa734f84b10a2b3fd063a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8459501697236474798, guid: a7dc96b7d57fa734f84b10a2b3fd063a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8459501697236474798, guid: a7dc96b7d57fa734f84b10a2b3fd063a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8459501697236474798, guid: a7dc96b7d57fa734f84b10a2b3fd063a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8459501697236474798, guid: a7dc96b7d57fa734f84b10a2b3fd063a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8459501697236474798, guid: a7dc96b7d57fa734f84b10a2b3fd063a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2552425631028711922, guid: a7dc96b7d57fa734f84b10a2b3fd063a,
+        type: 3}
+      propertyPath: headObject
+      value: 
+      objectReference: {fileID: 1376400456}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a7dc96b7d57fa734f84b10a2b3fd063a, type: 3}
 --- !u!1001 &809003797
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -298,6 +372,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3780520269709162166, guid: 1b057b0f516ed284ca7e19caf5df8a59,
+        type: 3}
+      propertyPath: m_Name
+      value: Rift
+      objectReference: {fileID: 0}
+    - target: {fileID: 3780520269709162166, guid: 1b057b0f516ed284ca7e19caf5df8a59,
+        type: 3}
+      propertyPath: m_TagString
+      value: Rift
+      objectReference: {fileID: 0}
     - target: {fileID: 3780520269709162161, guid: 1b057b0f516ed284ca7e19caf5df8a59,
         type: 3}
       propertyPath: m_RootOrder
@@ -317,16 +401,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3780520269709162166, guid: 1b057b0f516ed284ca7e19caf5df8a59,
-        type: 3}
-      propertyPath: m_Name
-      value: Rift
-      objectReference: {fileID: 0}
-    - target: {fileID: 3780520269709162166, guid: 1b057b0f516ed284ca7e19caf5df8a59,
-        type: 3}
-      propertyPath: m_TagString
-      value: Rift
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b057b0f516ed284ca7e19caf5df8a59, type: 3}
@@ -514,6 +588,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1376400456 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8459501697819562015, guid: a7dc96b7d57fa734f84b10a2b3fd063a,
+    type: 3}
+  m_PrefabInstance: {fileID: 760156287}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1852340959
 GameObject:
   m_ObjectHideFlags: 0
