@@ -131,6 +131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   riftTransform: {fileID: 3780520269709162161, guid: 1b057b0f516ed284ca7e19caf5df8a59,
     type: 3}
+  robotHP: 0
 --- !u!54 &3667900314776976494
 Rigidbody:
   m_ObjectHideFlags: 0

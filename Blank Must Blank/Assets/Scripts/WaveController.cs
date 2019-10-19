@@ -5,7 +5,6 @@ using UnityEngine;
 public class WaveController : MonoBehaviour {
     public int currentWave = 1;
     public Transform spawnPoint;
-
     public List<WaveSettings> waves = new List<WaveSettings>();
     private List<Coroutine> activeCoroutines = new List<Coroutine>();
 
@@ -74,6 +73,7 @@ public class WaveController : MonoBehaviour {
     public IEnumerator StartSpawningRobot(RobotSettings robot) {
         while (true) {
             yield return new WaitForSeconds(robot.spawnRate);
+            robot.obj.tag = "Robot";
             Instantiate(robot.obj, this.spawnPoint);
         }
     } 

@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class RobotController : MonoBehaviour {
     public Transform riftTransform;
+    public float robotHP;
 
     private void Start() {
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
@@ -12,7 +13,8 @@ public class RobotController : MonoBehaviour {
     }
 
     private void OnTriggerEnter(Collider other) {
-        if (other.tag == "Rift")
+        if (other.tag == "Rift") {
             Destroy(gameObject);
+        }
     }
 }
