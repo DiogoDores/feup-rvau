@@ -53,7 +53,7 @@ public class WaveController : MonoBehaviour {
                 this.activeCoroutines.ForEach(c => StopCoroutine(c));
                 this.activeCoroutines.Clear();
 
-                if (this.currentWave < this.waves.Count) {
+                if (this.currentWave < this.waves.Count && GameObject.FindGameObjectsWithTag("Robot").Length == 0) {
                     this.EnablePreparationPhase();
                 }
             }
