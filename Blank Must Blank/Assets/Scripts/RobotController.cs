@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class RobotController : MonoBehaviour {
     public Transform riftTransform;
-    public float robotHP;
+    public float robotHP = 2;
 
     private void Start() {
         NavMeshAgent agent = GetComponent<NavMeshAgent>();

@@ -34,8 +34,12 @@ public class TurretController : MonoBehaviour {
     private IEnumerator Fire() {
         while (true) {
             if (this.targets.Count > 0) {
-                Destroy(this.targets[0]);
-                this.targets.RemoveAt(0);
+                this.targets[0].GetComponent<RobotController>().robotHP--;
+                Debug.Log(this.targets[0].GetComponent<RobotController>().robotHP);
+                if (this.targets[0].GetComponent<RobotController>().robotHP == 0){
+                    Destroy(this.targets[0]);
+                    this.targets.RemoveAt(0);
+                }
             }
             yield return new WaitForSeconds(1);
         }
