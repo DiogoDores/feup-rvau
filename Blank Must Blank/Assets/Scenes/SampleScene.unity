@@ -382,6 +382,11 @@ PrefabInstance:
       propertyPath: headObject
       value: 
       objectReference: {fileID: 1376400456}
+    - target: {fileID: 2552425631028711922, guid: a7dc96b7d57fa734f84b10a2b3fd063a,
+        type: 3}
+      propertyPath: partToRotate
+      value: 
+      objectReference: {fileID: 1376400460}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7dc96b7d57fa734f84b10a2b3fd063a, type: 3}
 --- !u!1001 &809003797
@@ -610,6 +615,12 @@ Transform:
 --- !u!1 &1376400456 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8459501697819562015, guid: a7dc96b7d57fa734f84b10a2b3fd063a,
+    type: 3}
+  m_PrefabInstance: {fileID: 760156287}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1376400460 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8459501697819562014, guid: a7dc96b7d57fa734f84b10a2b3fd063a,
     type: 3}
   m_PrefabInstance: {fileID: 760156287}
   m_PrefabAsset: {fileID: 0}
