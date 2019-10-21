@@ -34,10 +34,10 @@ public class TurretController : MonoBehaviour {
     private IEnumerator Fire() {
         while (true) {
             if (this.targets.Count > 0) {
-                yield return new WaitForSeconds(1);
                 Destroy(this.targets[0]);
                 this.targets.RemoveAt(0);
             }
+            yield return new WaitForSeconds(1);
         }
     }
 }
