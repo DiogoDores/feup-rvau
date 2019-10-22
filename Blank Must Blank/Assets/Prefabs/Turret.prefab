@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8459501697236474798}
   - component: {fileID: 2552425631028711922}
-  - component: {fileID: 8821943515071102632}
   m_Layer: 0
   m_Name: Turret
   m_TagString: Untagged
@@ -46,21 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6685860fcd612f40b7748d0c93ac03c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  headObject: {fileID: 0}
-  partToRotate: {fileID: 0}
---- !u!135 &8821943515071102632
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8459501697236474799}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 5
-  m_Center: {x: 0, y: 0, z: 0}
+  damage: 50
+  head: {fileID: 8459501697819562014}
 --- !u!1 &8459501697336493007
 GameObject:
   m_ObjectHideFlags: 0

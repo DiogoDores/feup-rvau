@@ -317,11 +317,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Turret
       objectReference: {fileID: 0}
-    - target: {fileID: 8459501697236474799, guid: a7dc96b7d57fa734f84b10a2b3fd063a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8459501697236474798, guid: a7dc96b7d57fa734f84b10a2b3fd063a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -377,16 +372,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2552425631028711922, guid: a7dc96b7d57fa734f84b10a2b3fd063a,
-        type: 3}
-      propertyPath: headObject
-      value: 
-      objectReference: {fileID: 1376400456}
-    - target: {fileID: 2552425631028711922, guid: a7dc96b7d57fa734f84b10a2b3fd063a,
-        type: 3}
-      propertyPath: partToRotate
-      value: 
-      objectReference: {fileID: 1376400460}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7dc96b7d57fa734f84b10a2b3fd063a, type: 3}
 --- !u!1001 &809003797
@@ -396,20 +381,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3780520269709162166, guid: 1b057b0f516ed284ca7e19caf5df8a59,
-        type: 3}
-      propertyPath: m_Name
-      value: Rift
-      objectReference: {fileID: 0}
-    - target: {fileID: 3780520269709162166, guid: 1b057b0f516ed284ca7e19caf5df8a59,
-        type: 3}
-      propertyPath: m_TagString
-      value: Rift
-      objectReference: {fileID: 0}
     - target: {fileID: 3780520269709162161, guid: 1b057b0f516ed284ca7e19caf5df8a59,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3780520269709162161, guid: 1b057b0f516ed284ca7e19caf5df8a59,
         type: 3}
@@ -425,6 +400,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3780520269709162166, guid: 1b057b0f516ed284ca7e19caf5df8a59,
+        type: 3}
+      propertyPath: m_Name
+      value: Rift
+      objectReference: {fileID: 0}
+    - target: {fileID: 3780520269709162166, guid: 1b057b0f516ed284ca7e19caf5df8a59,
+        type: 3}
+      propertyPath: m_TagString
+      value: Rift
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b057b0f516ed284ca7e19caf5df8a59, type: 3}
@@ -610,20 +595,8 @@ Transform:
   m_LocalScale: {x: 2.9, y: 0.18513, z: 12.69}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1376400456 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8459501697819562015, guid: a7dc96b7d57fa734f84b10a2b3fd063a,
-    type: 3}
-  m_PrefabInstance: {fileID: 760156287}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1376400460 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8459501697819562014, guid: a7dc96b7d57fa734f84b10a2b3fd063a,
-    type: 3}
-  m_PrefabInstance: {fileID: 760156287}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1852340959
 GameObject:
   m_ObjectHideFlags: 0
@@ -922,13 +895,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2109735493}
-  m_LocalRotation: {x: 0, y: 0.960245, z: -0.27915868, w: 0}
-  m_LocalPosition: {x: 0, y: 18.28, z: 46.29}
+  m_LocalRotation: {x: -0, y: 0.894078, z: -0.44791138, w: 0}
+  m_LocalPosition: {x: 0, y: 15.48, z: 28.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 32.42, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 53.22, y: 180.00002, z: 0}
 --- !u!1 &2138677391
 GameObject:
   m_ObjectHideFlags: 0
@@ -957,7 +930,7 @@ Light:
   serializedVersion: 9
   m_Type: 1
   m_Color: {r: 0.9716981, g: 0.9716981, b: 0.9716981, a: 1}
-  m_Intensity: 248.35
+  m_Intensity: 4.69
   m_Range: 10
   m_SpotAngle: 28
   m_InnerSpotAngle: 21.802082
@@ -1013,10 +986,10 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2138677391}
-  m_LocalRotation: {x: 0.7070799, y: -0.66232723, z: 0.006170624, w: 0.24763402}
-  m_LocalPosition: {x: 2.19, y: 2.85, z: -10.7}
+  m_LocalRotation: {x: 0.56523466, y: -0.68065166, z: 0.45893368, w: -0.08125868}
+  m_LocalPosition: {x: 2.19, y: 2.85, z: 10.59}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 159, y: 20, z: 90}
+  m_LocalEulerAnglesHint: {x: 32.201, y: 131.94, z: 265.919}
