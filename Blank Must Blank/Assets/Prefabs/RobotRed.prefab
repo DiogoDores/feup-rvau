@@ -133,6 +133,7 @@ MonoBehaviour:
   riftTransform: {fileID: 3780520269709162161, guid: 1b057b0f516ed284ca7e19caf5df8a59,
     type: 3}
   health: 100
+  bounty: 5
   healthBar: {fileID: 6505716635690723158}
 --- !u!54 &3667900314776976494
 Rigidbody:

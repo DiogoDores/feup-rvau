@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TurretController : MonoBehaviour {
-    public float damage;
+    public int damage;
     public Transform head;
 
     private GameObject target;
@@ -14,6 +14,7 @@ public class TurretController : MonoBehaviour {
     }
 
     private void Update() {
+
         if (target != null) {
             Vector3 dir = this.target.transform.position - this.transform.position;
             Quaternion lookRotation = Quaternion.LookRotation(dir);
@@ -46,9 +47,8 @@ public class TurretController : MonoBehaviour {
     private IEnumerator Fire() {
         while (true) {
             this.target = FindClosestRobot();
-            print(this.target);
             if (this.target != null) {
-                this.target.GetComponent<RobotController>().TakeDamage(this.damage);
+                this.target.GetComponent<RobotController>().TakeDamage(this.damage, gameObject);
             }
             yield return new WaitForSeconds(0.5f);
         }

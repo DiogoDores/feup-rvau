@@ -7,12 +7,14 @@ public class WaveController : MonoBehaviour {
     public Transform spawnPoint;
     public List<WaveSettings> waves = new List<WaveSettings>();
     private List<Coroutine> activeCoroutines = new List<Coroutine>();
+    private CanvasController canvasController;
 
-    private float preparationPrecise;
-    [SerializeField] private int preparationTime;
+    public float preparationTime;
+    private float copyPreparationTime;
 
     private void Start() {
-        this.preparationPrecise = (float) this.preparationTime;
+        this.canvasController = GameObject.FindGameObjectWithTag("Canvas").GetComponent<CanvasController>();
+        this.copyPreparationTime = this.preparationTime;
     }
 
     [System.Serializable]
@@ -39,16 +41,26 @@ public class WaveController : MonoBehaviour {
 
     private void Update() {
         // Elapse time if there's any preparation time available.
-        if (this.preparationPrecise > 0.0f) {
-            this.preparationPrecise -= Time.deltaTime;
-            this.preparationTime = (int) this.preparationPrecise % 60;
+        if (this.preparationTime > 0.0f) {
+            this.preparationTime -= Time.deltaTime;
+            this.canvasController.UpdateWaveTime(this.preparationTime, true);
 
-            if (this.preparationPrecise <= 0.0f)
+            if (this.preparationTime <= 0.0f)
                 this.activeCoroutines = StartWave();
         }
         else {
-            if (this.waves[this.currentWave - 1].remainingTime > 0.0f) {
+            float delta = this.waves[this.currentWave - 1].remainingTime;
+            
+
+            if (delta > 0.0f) {
                 this.waves[this.currentWave - 1].remainingTime -= Time.deltaTime;
+                
+                // Handle rounding and negative issues.
+                if (this.waves[this.currentWave - 1].remainingTime < 0.0f) {
+                    delta = this.waves[this.currentWave - 1].remainingTime = 0.0f;
+                }
+
+                this.canvasController.UpdateWaveTime(delta, false);
             } else {
                 this.activeCoroutines.ForEach(c => StopCoroutine(c));
                 this.activeCoroutines.Clear();
@@ -64,22 +76,22 @@ public class WaveController : MonoBehaviour {
         List<Coroutine> crtn = new List<Coroutine>();
 
         this.waves[this.currentWave - 1].robotSettings.ForEach(robot => {
-            crtn.Add(StartCoroutine(StartSpawningRobot(robot)));
+            crtn.Add(StartCoroutine(StartSpawningRobots(robot)));
         });
 
         return crtn;
     }
 
-    public IEnumerator StartSpawningRobot(RobotSettings robot) {
+    public IEnumerator StartSpawningRobots(RobotSettings robot) {
         while (true) {
-            yield return new WaitForSeconds(robot.spawnRate);
-            robot.obj.tag = "Robot";
             Instantiate(robot.obj, this.spawnPoint);
+            yield return new WaitForSeconds(robot.spawnRate);
         }
     } 
 
     public void EnablePreparationPhase() {
         this.currentWave++;
-        this.preparationPrecise = 5.0f;
+        this.canvasController.UpdateWaveName(this.currentWave);
+        this.preparationTime = this.copyPreparationTime;
     }
 }

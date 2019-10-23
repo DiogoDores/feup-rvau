@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Rift
   - Robot
+  - Canvas
   layers:
   - Default
   - TransparentFX
