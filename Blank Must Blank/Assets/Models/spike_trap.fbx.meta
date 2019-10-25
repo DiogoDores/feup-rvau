@@ -1,158 +1,23 @@
 fileFormatVersion: 2
-guid: 4673997be75e421418c8820a0ff5b6cb
+guid: c05df7d86f0ff844ea6d888fa30eee9d
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable:
   - first:
-      74: -1565937593473639013
-    second: Cylinder|Cylinder.001Action
+      74: 7971306433650792276
+    second: Spikes|Cylinder.001Action.001
   - first:
-      74: -8370402726415504282
-    second: Cylinder|Cylinder.001Action.001
+      74: 4973097771258347180
+    second: Spikes|Cylinder.002Action.001
   - first:
-      74: 5100070300365281523
-    second: Cylinder|Cylinder.002Action
+      74: -6341899810168979203
+    second: Spikes|Cylinder.003Action.001
   - first:
-      74: 666583004044118832
-    second: Cylinder|Cylinder.002Action.001
+      74: -562846029347886002
+    second: Spikes|Cylinder.004Action.001
   - first:
-      74: 7103945774817401546
-    second: Cylinder|Cylinder.003Action
-  - first:
-      74: -8550741192444264714
-    second: Cylinder|Cylinder.003Action.001
-  - first:
-      74: 8918827763047035496
-    second: Cylinder|Cylinder.004Action
-  - first:
-      74: -1118252983482462134
-    second: Cylinder|Cylinder.004Action.001
-  - first:
-      74: -88723805440604879
-    second: Cylinder|CylinderAction
-  - first:
-      74: -6242241587816052237
-    second: Cylinder|CylinderAction.001
-  - first:
-      74: 3936550650637524798
-    second: Cylinder.001|Cylinder.001Action
-  - first:
-      74: -4675414068180665352
-    second: Cylinder.001|Cylinder.001Action.001
-  - first:
-      74: -5525172884732378176
-    second: Cylinder.001|Cylinder.002Action
-  - first:
-      74: 90159060544804150
-    second: Cylinder.001|Cylinder.002Action.001
-  - first:
-      74: -5513450560066898791
-    second: Cylinder.001|Cylinder.003Action
-  - first:
-      74: -271632658696678491
-    second: Cylinder.001|Cylinder.003Action.001
-  - first:
-      74: 3529634829385240164
-    second: Cylinder.001|Cylinder.004Action
-  - first:
-      74: -8392093311795163452
-    second: Cylinder.001|Cylinder.004Action.001
-  - first:
-      74: 3602085371921796995
-    second: Cylinder.001|CylinderAction
-  - first:
-      74: 4639736067092989289
-    second: Cylinder.001|CylinderAction.001
-  - first:
-      74: 7317901949878717092
-    second: Cylinder.002|Cylinder.001Action
-  - first:
-      74: -6840643175865507132
-    second: Cylinder.002|Cylinder.001Action.001
-  - first:
-      74: -2388811887902066691
-    second: Cylinder.002|Cylinder.002Action
-  - first:
-      74: 9090933613697736484
-    second: Cylinder.002|Cylinder.002Action.001
-  - first:
-      74: -7301525223305796811
-    second: Cylinder.002|Cylinder.003Action
-  - first:
-      74: -5436435555955584111
-    second: Cylinder.002|Cylinder.003Action.001
-  - first:
-      74: 2581629342761037270
-    second: Cylinder.002|Cylinder.004Action
-  - first:
-      74: 5318805918868911703
-    second: Cylinder.002|Cylinder.004Action.001
-  - first:
-      74: 3149465394390671080
-    second: Cylinder.002|CylinderAction
-  - first:
-      74: -6974663243432506211
-    second: Cylinder.002|CylinderAction.001
-  - first:
-      74: -6460452384805391178
-    second: Cylinder.003|Cylinder.001Action
-  - first:
-      74: -6264086052232557698
-    second: Cylinder.003|Cylinder.001Action.001
-  - first:
-      74: 3699463518991864318
-    second: Cylinder.003|Cylinder.002Action
-  - first:
-      74: -7579257255991434205
-    second: Cylinder.003|Cylinder.002Action.001
-  - first:
-      74: -5793013652114006676
-    second: Cylinder.003|Cylinder.003Action
-  - first:
-      74: 2130396863137860482
-    second: Cylinder.003|Cylinder.003Action.001
-  - first:
-      74: 4114110969061346249
-    second: Cylinder.003|Cylinder.004Action
-  - first:
-      74: -2185082943077793011
-    second: Cylinder.003|Cylinder.004Action.001
-  - first:
-      74: 4306715920476788579
-    second: Cylinder.003|CylinderAction
-  - first:
-      74: -8469494111173391411
-    second: Cylinder.003|CylinderAction.001
-  - first:
-      74: -7214563030217387891
-    second: Cylinder.004|Cylinder.001Action
-  - first:
-      74: 6808615771992160
-    second: Cylinder.004|Cylinder.001Action.001
-  - first:
-      74: -4216732959981531545
-    second: Cylinder.004|Cylinder.002Action
-  - first:
-      74: 3078864700120743561
-    second: Cylinder.004|Cylinder.002Action.001
-  - first:
-      74: 1050801522688698224
-    second: Cylinder.004|Cylinder.003Action
-  - first:
-      74: 5669246098902790178
-    second: Cylinder.004|Cylinder.003Action.001
-  - first:
-      74: 753833352031884721
-    second: Cylinder.004|Cylinder.004Action
-  - first:
-      74: 971279604660050673
-    second: Cylinder.004|Cylinder.004Action.001
-  - first:
-      74: 1259100930554606383
-    second: Cylinder.004|CylinderAction
-  - first:
-      74: -3896964908068853958
-    second: Cylinder.004|CylinderAction.001
+      74: 2897408184115956632
+    second: Spikes|CylinderAction.001
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -180,7 +45,36 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Spikes|CylinderAction.001
+      takeName: Spikes|CylinderAction.001
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 34
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 0
   meshes:
     lODScreenPercentages: []
