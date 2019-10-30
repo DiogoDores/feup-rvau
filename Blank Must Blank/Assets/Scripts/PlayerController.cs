@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
     private CanvasController canvasController;
-
     private int cogs;
 
     private void Start() {
