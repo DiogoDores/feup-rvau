@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 695592170003709713}
   - component: {fileID: 695592170003709718}
   m_Layer: 0
-  m_Name: SpikeTarget
+  m_Name: SpikesTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -208,16 +208,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.1
       objectReference: {fileID: 0}
-    - target: {fileID: -6057140222963153312, guid: c05df7d86f0ff844ea6d888fa30eee9d,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 4ca8fa10d8c44a241acdf542239e4726, type: 2}
-    - target: {fileID: -6057140222963153312, guid: c05df7d86f0ff844ea6d888fa30eee9d,
-        type: 3}
-      propertyPath: m_Avatar
-      value: 
-      objectReference: {fileID: 9000000, guid: c05df7d86f0ff844ea6d888fa30eee9d, type: 3}
     - target: {fileID: -6609481658326264443, guid: c05df7d86f0ff844ea6d888fa30eee9d,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -228,6 +218,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0.000010327614
       objectReference: {fileID: 0}
+    - target: {fileID: -6057140222963153312, guid: c05df7d86f0ff844ea6d888fa30eee9d,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 4ca8fa10d8c44a241acdf542239e4726, type: 2}
+    - target: {fileID: -6057140222963153312, guid: c05df7d86f0ff844ea6d888fa30eee9d,
+        type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: c05df7d86f0ff844ea6d888fa30eee9d, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c05df7d86f0ff844ea6d888fa30eee9d, type: 3}
 --- !u!4 &5538734480008421414 stripped

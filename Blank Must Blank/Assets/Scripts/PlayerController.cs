@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Vuforia;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
+    private int health = 100;
     private CanvasController canvasController;
     private int cogs;
 
@@ -73,5 +75,12 @@ public class PlayerController : MonoBehaviour {
 
     public void CollectCogs(int amount) {
         this.cogs += amount;
+    }
+
+    public void UpdateHealth(int value) {
+        this.health -= value;
+        
+        // Update rift points label on scene.
+        GameObject.Find("RiftPoints").GetComponent<TextMesh>().text = this.health.ToString();
     }
 }

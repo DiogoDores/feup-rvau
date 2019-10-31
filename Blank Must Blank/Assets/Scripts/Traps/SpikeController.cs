@@ -12,11 +12,6 @@ public class SpikeController : MonoBehaviour
     private float trapCounter = 0.0f;
     public Animator trapAnimation;
 
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {

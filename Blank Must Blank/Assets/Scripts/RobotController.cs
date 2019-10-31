@@ -26,7 +26,7 @@ public class RobotController : MonoBehaviour {
 
         if (this.health <= 0) {
             if (!source.CompareTag("Rift")) this.playerController.CollectCogs(this.bounty);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 

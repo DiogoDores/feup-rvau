@@ -12,9 +12,12 @@ public class WaveController : MonoBehaviour {
     public float preparationTime;
     private float copyPreparationTime;
 
+    private ObjectPooler pooler;
+
     private void Start() {
         this.canvasController = GameObject.FindGameObjectWithTag("Canvas").GetComponent<CanvasController>();
         this.copyPreparationTime = this.preparationTime;
+        this.pooler = ObjectPooler.Instance;
     }
 
     [System.Serializable]
@@ -30,11 +33,11 @@ public class WaveController : MonoBehaviour {
 
     [System.Serializable]
     public class RobotSettings {
-        public GameObject obj;
+        public string tag;
         public float spawnRate;
 
-        public RobotSettings(GameObject obj, float spawnRate) {
-            this.obj = obj;
+        public RobotSettings(string tag, float spawnRate) {
+            this.tag = tag;
             this.spawnRate = spawnRate;
         }
     }
@@ -65,7 +68,7 @@ public class WaveController : MonoBehaviour {
                 this.activeCoroutines.ForEach(c => StopCoroutine(c));
                 this.activeCoroutines.Clear();
 
-                if (this.currentWave < this.waves.Count && GameObject.FindGameObjectsWithTag("Robot").Length == 0) {
+                if (this.currentWave < this.waves.Count && this.pooler.GetActiveObjectsInPool() == 0) {
                     this.EnablePreparationPhase();
                 }
             }
@@ -84,7 +87,7 @@ public class WaveController : MonoBehaviour {
 
     public IEnumerator StartSpawningRobots(RobotSettings robot) {
         while (true) {
-            Instantiate(robot.obj, this.spawnPoint);
+            this.pooler.SpawnFromPool(robot.tag, this.spawnPoint.position, Quaternion.identity);
             yield return new WaitForSeconds(robot.spawnRate);
         }
     } 
