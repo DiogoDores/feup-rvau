@@ -1,40 +1,67 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Vuforia;
 
 public class PlayerController : MonoBehaviour {
     private CanvasController canvasController;
     private int cogs;
-    private Dictionary<Trap, int> markers;
 
     private ShopController shopController;
 
-    public enum Trap {
-        SPIKES, ACID, TURRET
+    public List<Trap> traps = new List<Trap>();
+
+    [System.Serializable]
+    public class Trap {
+        public enum Type {
+            Spikes, Acid, Turret
+        }
+
+        public Type type;
+        public int cost;
+        public List<GameObject> targets;
+        [HideInInspector] public int lastMarker;
+
+        public Trap(Type type, int cost) {
+            this.type = type;
+            this.cost = cost;
+            this.lastMarker = 0;
+        }
     }
 
     private void Start() {
-        this.markers = new Dictionary<Trap, int>();
-
-        List<Trap> traps = new List<Trap>{ Trap.SPIKES, Trap.ACID, Trap.TURRET };
-        traps.ForEach(trap => this.markers.Add(trap, 0));
-
         this.canvasController = GameObject.FindGameObjectWithTag("Canvas").GetComponent<CanvasController>();
         this.shopController = GameObject.FindGameObjectWithTag("Shop").GetComponent<ShopController>();
     }
 
-    public void ShopTrap(Trap trap, bool isPurchase) {
-        if (isPurchase && this.markers[trap] < 5) 
-            this.markers[trap]++;
+    public void ShopTrap(Trap.Type trapType, bool isPurchase) {
+        Trap trap = this.traps.Find(t => t.type == trapType);
 
-        if (!isPurchase && this.markers[trap] > 0)
-            this.markers[trap]--;
+        if (isPurchase && this.cogs < 0) {
+            Debug.Log("Not enough money!");
+            return;
+        }
 
-        this.shopController.UpdateInventoryLabel(trap, this.markers[trap]);
+        if (isPurchase && trap.lastMarker < 5) {
+            trap.lastMarker++;
+            this.cogs -= trap.cost;
+            trap.targets[trap.lastMarker - 1].SetActive(true);
+        }
+
+        if (!isPurchase && trap.lastMarker > 0) {
+            trap.lastMarker--;
+            this.cogs += trap.cost;
+            trap.targets[trap.lastMarker].SetActive(false);
+        }
+
+        this.shopController.UpdateInventoryLabel(trap.type, trap.lastMarker);
+    }
+
+    public int GetCogs() {
+        return this.cogs;
     }
 
     public void CollectCogs(int amount) {
         this.cogs += amount;
-        this.canvasController.UpdateCogs(this.cogs);
     }
 }

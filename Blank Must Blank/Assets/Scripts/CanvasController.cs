@@ -6,8 +6,14 @@ using UnityEngine.UI;
 public class CanvasController : MonoBehaviour {
     public Text cogsText, waveTime, waveName;
 
-    public void UpdateCogs(int amount) {
-        this.cogsText.text = amount.ToString();
+    private PlayerController player;
+
+    private void Start() {
+        this.player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+    }
+
+    private void Update() {
+        this.cogsText.text = this.player.GetCogs().ToString();
     }
 
     public void UpdateWaveName(int wave) {
