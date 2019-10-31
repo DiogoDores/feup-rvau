@@ -7,6 +7,7 @@ TagManager:
   - Rift
   - Robot
   - Canvas
+  - Shop
   layers:
   - Default
   - TransparentFX
