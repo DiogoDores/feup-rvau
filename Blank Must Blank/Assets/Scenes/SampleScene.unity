@@ -715,7 +715,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: SPIKES
+          m_StringArgument: Spikes
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &120687195
@@ -1256,7 +1256,7 @@ PrefabInstance:
     - target: {fileID: 695592170003709719, guid: 6b45e62ca94d8f44aab050f61a70d6b9,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 695592170003709725, guid: 6b45e62ca94d8f44aab050f61a70d6b9,
         type: 3}
@@ -1644,7 +1644,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: SPIKES
+          m_StringArgument: Spikes
           m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &511038194
@@ -1941,7 +1941,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: TURRET
+          m_StringArgument: Turret
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &674592876
@@ -2218,7 +2218,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: ACID
+          m_StringArgument: Acid
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &893781838
@@ -3214,7 +3214,7 @@ PrefabInstance:
     - target: {fileID: 9019220722534514661, guid: 92a5b310e283a93489d316cf6a112d4d,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9019220722534514659, guid: 92a5b310e283a93489d316cf6a112d4d,
         type: 3}
@@ -3408,7 +3408,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: TURRET
+          m_StringArgument: Turret
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1200448137
@@ -4140,7 +4140,7 @@ PrefabInstance:
     - target: {fileID: 9019220722534514661, guid: 92a5b310e283a93489d316cf6a112d4d,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9019220722534514659, guid: 92a5b310e283a93489d316cf6a112d4d,
         type: 3}
@@ -4394,7 +4394,7 @@ PrefabInstance:
     - target: {fileID: 695592170003709719, guid: 6b45e62ca94d8f44aab050f61a70d6b9,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 695592170003709725, guid: 6b45e62ca94d8f44aab050f61a70d6b9,
         type: 3}
@@ -4456,11 +4456,21 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 695592170003709712, guid: 6b45e62ca94d8f44aab050f61a70d6b9,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 695592170003709713, guid: 6b45e62ca94d8f44aab050f61a70d6b9,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 1469338710}
+    - target: {fileID: 695592170003709713, guid: 6b45e62ca94d8f44aab050f61a70d6b9,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 695592170003709718, guid: 6b45e62ca94d8f44aab050f61a70d6b9,
         type: 3}
       propertyPath: m_Mesh
@@ -4568,7 +4578,7 @@ PrefabInstance:
     - target: {fileID: 695592170003709719, guid: 6b45e62ca94d8f44aab050f61a70d6b9,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 695592170003709725, guid: 6b45e62ca94d8f44aab050f61a70d6b9,
         type: 3}
@@ -4902,7 +4912,7 @@ PrefabInstance:
     - target: {fileID: 9019220722534514661, guid: 92a5b310e283a93489d316cf6a112d4d,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9019220722534514659, guid: 92a5b310e283a93489d316cf6a112d4d,
         type: 3}
@@ -5648,7 +5658,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: ACID
+          m_StringArgument: Acid
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1874535710
@@ -5960,7 +5970,7 @@ PrefabInstance:
     - target: {fileID: 9019220722534514661, guid: 92a5b310e283a93489d316cf6a112d4d,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9019220722534514659, guid: 92a5b310e283a93489d316cf6a112d4d,
         type: 3}
@@ -6329,7 +6339,7 @@ PrefabInstance:
     - target: {fileID: 695592170003709719, guid: 6b45e62ca94d8f44aab050f61a70d6b9,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 695592170003709725, guid: 6b45e62ca94d8f44aab050f61a70d6b9,
         type: 3}
@@ -6516,7 +6526,7 @@ PrefabInstance:
     - target: {fileID: 695592170003709719, guid: 6b45e62ca94d8f44aab050f61a70d6b9,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 695592170003709725, guid: 6b45e62ca94d8f44aab050f61a70d6b9,
         type: 3}
@@ -6798,7 +6808,7 @@ PrefabInstance:
     - target: {fileID: 9019220722534514661, guid: 92a5b310e283a93489d316cf6a112d4d,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9019220722534514659, guid: 92a5b310e283a93489d316cf6a112d4d,
         type: 3}
