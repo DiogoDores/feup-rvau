@@ -4764,7 +4764,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1627070208}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17, y: 0, z: 0}
+  m_LocalPosition: {x: 9.15, y: 0, z: 2.99}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1010723474}
@@ -4891,7 +4891,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1638543173}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17, y: 0, z: 0}
+  m_LocalPosition: {x: 9.15, y: 0, z: 2.99}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1509563633}
@@ -5541,9 +5541,9 @@ MonoBehaviour:
   - remainingTime: 10
     robotSettings:
     - tag: RobotRed
-      spawnRate: 2
+      spawnRate: 1
     - tag: RobotBlue
-      spawnRate: 3
+      spawnRate: 1
   - remainingTime: 10
     robotSettings:
     - tag: RobotRed

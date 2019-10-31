@@ -25,7 +25,7 @@ public class RobotController : MonoBehaviour {
         this.healthBar.fillAmount = this.health / 100.0f;
 
         if (this.health <= 0) {
-            if (!source.CompareTag("Rift")) this.playerController.CollectCogs(this.bounty);
+            if (!source.CompareTag("Rift")) this.playerController.UpdateCogs(this.bounty);
             gameObject.SetActive(false);
         }
     }

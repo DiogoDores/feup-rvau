@@ -49,13 +49,13 @@ public class PlayerController : MonoBehaviour {
 
         if (isPurchase && trap.lastMarker < 5) {
             trap.lastMarker++;
-            this.cogs -= trap.cost;
+            this.UpdateCogs(-trap.cost);
             trap.targets[trap.lastMarker - 1].GetComponent<ImageTargetBehaviour>().enabled = true;
         }
 
         if (!isPurchase && trap.lastMarker > 0) {
             trap.lastMarker--;
-            this.cogs += trap.cost;
+            this.UpdateCogs(trap.cost);
             trap.targets[trap.lastMarker].GetComponent<ImageTargetBehaviour>().enabled = false;
         }
 
@@ -73,12 +73,22 @@ public class PlayerController : MonoBehaviour {
         return this.cogs;
     }
 
-    public void CollectCogs(int amount) {
-        this.cogs += amount;
+    public void UpdateCogs(int amount) {
+        if (this.cogs + amount < 0) {
+            this.cogs = 0;
+        } else {
+            this.cogs += amount;
+        }
     }
 
     public void UpdateHealth(int value) {
-        this.health -= value;
+        
+        // Handle negative values.
+        if (this.health - value < 0) {
+            this.health = 0;
+        } else {
+            this.health -= value;
+        }
         
         // Update rift points label on scene.
         GameObject.Find("RiftPoints").GetComponent<TextMesh>().text = this.health.ToString();
