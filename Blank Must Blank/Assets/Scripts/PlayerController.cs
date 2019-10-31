@@ -5,11 +5,12 @@ using Vuforia;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
-    private int health = 100;
+    public Canvas canvas, shop;
     private CanvasController canvasController;
-    private int cogs;
-
     private ShopController shopController;
+
+    private int health = 100;
+    private int cogs;
 
     public List<Trap> traps = new List<Trap>();
 
@@ -33,8 +34,8 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void Start() {
-        this.canvasController = GameObject.FindGameObjectWithTag("Canvas").GetComponent<CanvasController>();
-        this.shopController = GameObject.FindGameObjectWithTag("Shop").GetComponent<ShopController>();
+        this.canvasController = this.canvas.GetComponent<CanvasController>();
+        this.shopController = this.shop.GetComponent<ShopController>();
 
         StartCoroutine(DisableImageTargets());
     }

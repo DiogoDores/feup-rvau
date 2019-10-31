@@ -18,6 +18,7 @@ public class CanvasController : MonoBehaviour {
 
     public void UpdateWaveName(int wave) {
         this.waveName.text = "Wave " + wave.ToString();
+        Debug.Log(this.waveName.text);
     }
 
     public void UpdateWaveTime(float time, bool isPreparation) {
@@ -26,6 +27,6 @@ public class CanvasController : MonoBehaviour {
         else
             this.waveTime.color = Color.white;
 
-        this.waveTime.text = (Mathf.Ceil(time * 10) / 10).ToString("0.0");
+        this.waveTime.text = (Mathf.Ceil(time * 100) / 100).ToString("0.00");
     }
 }

@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class WaveController : MonoBehaviour {
+    public Canvas canvas;
+    private CanvasController canvasController;
+
     public int currentWave = 1;
     public Transform spawnPoint;
     public List<WaveSettings> waves = new List<WaveSettings>();
     private List<Coroutine> activeCoroutines = new List<Coroutine>();
-    private CanvasController canvasController;
 
     public float preparationTime;
     private float copyPreparationTime;
@@ -15,7 +17,7 @@ public class WaveController : MonoBehaviour {
     private ObjectPooler pooler;
 
     private void Start() {
-        this.canvasController = GameObject.FindGameObjectWithTag("Canvas").GetComponent<CanvasController>();
+        this.canvasController = this.canvas.GetComponent<CanvasController>();
         this.copyPreparationTime = this.preparationTime;
         this.pooler = ObjectPooler.Instance;
     }
