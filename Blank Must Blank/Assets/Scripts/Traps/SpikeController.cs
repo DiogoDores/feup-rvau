@@ -29,8 +29,10 @@ public class SpikeController : MonoBehaviour
                 other.gameObject.GetComponent<RobotController>().TakeDamage(this.damage, other.gameObject);
                 trapAnimation.SetBool("trigger", true);
                 this.counter++;
+                Debug.Log(this.counter);
             }
-            if (this.counter >= 5) {
+            if (this.counter >= 10) {
+                this.active = false;
                 trapAnimation.SetBool("trigger", false);
             }
         }
