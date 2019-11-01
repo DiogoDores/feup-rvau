@@ -10,15 +10,10 @@ public class RobotController : MonoBehaviour {
     public int bounty = 5;
 
     private PlayerController playerController;
-    private ParticleSystem boltParticles;
+    public ParticleSystem boltParticles;
 
     [Header("UI")]
     public Image healthBar;
-
-    private void Start() {
-        this.boltParticles = GetComponentInChildren<ParticleSystem>();
-        this.boltParticles.Play();
-    }
 
     private void OnEnable() {
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
@@ -31,9 +26,16 @@ public class RobotController : MonoBehaviour {
         this.healthBar.fillAmount = this.health / 100.0f;
 
         if (this.health <= 0) {
+            PlayDeathParticleEffect();
             if (!source.CompareTag("Rift")) this.playerController.UpdateCogs(this.bounty);
             gameObject.SetActive(false);
         }
+    }
+
+    private void PlayDeathParticleEffect() {
+        ParticleSystem particles = Instantiate(this.boltParticles, transform.position, Quaternion.identity);
+        particles.transform.parent = transform.parent;
+        Destroy(particles.gameObject, particles.main.duration);
     }
 
     private void OnTriggerEnter(Collider other) {
