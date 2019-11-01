@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour {
         Trap trap = this.traps.Find(t => t.type == trapType);
 
         if (isPurchase && this.cogs < 0) {
-            Debug.Log("Not enough money!");
+            //Debug.Log("Not enough money!");
             return;
         }
 

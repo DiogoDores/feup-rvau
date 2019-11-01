@@ -18,7 +18,7 @@ public class CanvasController : MonoBehaviour {
 
     public void UpdateWaveName(int wave) {
         this.waveName.text = "Wave " + wave.ToString();
-        Debug.Log(this.waveName.text);
+       // Debug.Log(this.waveName.text);
     }
 
     public void UpdateWaveTime(float time, bool isPreparation) {

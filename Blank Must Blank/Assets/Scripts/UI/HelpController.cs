@@ -16,7 +16,7 @@ public class HelpController : MonoBehaviour, ITrackableEventHandler {
     }
 
     public void OnTrackableStateChanged(TrackableBehaviour.Status previousStatus, TrackableBehaviour.Status newStatus) {
-        Debug.Log("penis");
+        //Debug.Log("penis");
 
         if (newStatus == TrackableBehaviour.Status.DETECTED || newStatus == TrackableBehaviour.Status.TRACKED) {
             this.helpCanvas.gameObject.SetActive(false);
