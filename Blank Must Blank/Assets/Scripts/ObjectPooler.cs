@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class ObjectPooler : MonoBehaviour {
     [System.Serializable]
@@ -47,6 +48,8 @@ public class ObjectPooler : MonoBehaviour {
         obj.SetActive(true);
         obj.transform.position = position;
         obj.transform.rotation = rotation;
+
+        obj.GetComponent<RobotController>().Revive();
 
         this.poolDictionary[tag].Enqueue(obj);
 

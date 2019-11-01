@@ -14,7 +14,7 @@ public class RobotController : MonoBehaviour {
     [Header("UI")]
     public Image healthBar;
 
-    private void Start() {
+    private void OnEnable() {
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
         agent.destination = this.riftTransform.position;
         this.playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
@@ -36,6 +36,10 @@ public class RobotController : MonoBehaviour {
         }
     }
 
+    public void Revive() {
+        this.health = 100;
+        this.healthBar.fillAmount = this.health / 100.0f;
+    }
 
     public float GetHealth() => this.health;
 }
