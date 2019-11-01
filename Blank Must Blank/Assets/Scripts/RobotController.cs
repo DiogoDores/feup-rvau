@@ -10,9 +10,15 @@ public class RobotController : MonoBehaviour {
     public int bounty = 5;
 
     private PlayerController playerController;
+    private ParticleSystem boltParticles;
 
     [Header("UI")]
     public Image healthBar;
+
+    private void Start() {
+        this.boltParticles = GetComponentInChildren<ParticleSystem>();
+        this.boltParticles.Play();
+    }
 
     private void OnEnable() {
         NavMeshAgent agent = GetComponent<NavMeshAgent>();

@@ -5819,7 +5819,7 @@ MonoBehaviour:
       type: 3}
     size: 10
   - tag: RobotBlue
-    prefab: {fileID: 1824770312533171222, guid: 3f0bd4a63ae145f44ab02d594183f068,
+    prefab: {fileID: 1824770312533171222, guid: 85b823fee82f20644a8e6f7038ca041e,
       type: 3}
     size: 10
 --- !u!1001 &1903140785
