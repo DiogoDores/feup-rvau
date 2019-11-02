@@ -10,6 +10,7 @@ TagManager:
   - Shop
   - Help
   - Rain
+  - Cloud
   layers:
   - Default
   - TransparentFX

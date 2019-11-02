@@ -74,7 +74,7 @@ public class RootObject
 public class SkyController : MonoBehaviour {
     public float pollingRate;
     private string baseURL, apiKey;
-    public ParticleSystem rainParticles;
+    public ParticleSystem rainParticles, cloudParticles;
 
     private void Start() {
         this.baseURL = "https://api.openweathermap.org/data/2.5/weather?";
@@ -135,8 +135,13 @@ public class SkyController : MonoBehaviour {
 
                 if (obj.weather[0].main.Equals("Rain")) {
                     this.rainParticles.Play();
-                } else {
+                }
+                else if (obj.weather[0].main.Equals("Clouds")) {
+                    this.cloudParticles.Play();
+                }           
+                else {
                     this.rainParticles.Stop();
+                    this.cloudParticles.Stop();
                 }
             }
 
