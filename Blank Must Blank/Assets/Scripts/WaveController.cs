@@ -14,12 +14,15 @@ public class WaveController : MonoBehaviour {
     public float preparationTime;
     private float copyPreparationTime;
 
+    private GameObject helpCanvas;
+
     private ObjectPooler pooler;
 
     private void Start() {
         this.canvasController = this.canvas.GetComponent<CanvasController>();
         this.copyPreparationTime = this.preparationTime;
         this.pooler = ObjectPooler.Instance;
+        this.helpCanvas = GameObject.FindGameObjectWithTag("Help");
     }
 
     [System.Serializable]
@@ -45,6 +48,10 @@ public class WaveController : MonoBehaviour {
     }
 
     private void Update() {
+        if (this.helpCanvas.activeSelf) {
+            return;
+        }
+
         // Elapse time if there's any preparation time available.
         if (this.preparationTime > 0.0f) {
             this.preparationTime -= Time.deltaTime;
