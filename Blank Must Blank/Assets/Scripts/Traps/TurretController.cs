@@ -19,7 +19,7 @@ public class TurretController : MonoBehaviour {
             Vector3 dir = this.target.transform.position - this.transform.position;
             Quaternion lookRotation = Quaternion.LookRotation(dir);
             Vector3 rotation = lookRotation.eulerAngles;
-            head.rotation = Quaternion.Slerp(this.head.rotation, Quaternion.Euler(0f, rotation.y, 0f), Time.deltaTime * this.lockSpeed);
+            head.rotation = Quaternion.Slerp(this.head.rotation, Quaternion.Euler(180f, rotation.y, 0f), Time.deltaTime * this.lockSpeed);
         }
     }
 

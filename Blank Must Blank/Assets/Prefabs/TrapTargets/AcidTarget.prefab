@@ -14412,6 +14412,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particles: {fileID: 3515140339925873512}
+  damage: 2
 --- !u!1 &6018285095063542727
 GameObject:
   m_ObjectHideFlags: 0
