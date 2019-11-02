@@ -5,7 +5,7 @@ using UnityEngine;
 public class AcidController : MonoBehaviour {
     public ParticleSystem particles;
     private float activation = 1.6f, delay = 1.0f;
-    public int damage = 2;
+    public int damage = 8;
 
     private void Start() {
         StartCoroutine(Enable(this.delay));
