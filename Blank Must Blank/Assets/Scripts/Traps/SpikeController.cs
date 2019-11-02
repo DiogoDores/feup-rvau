@@ -12,32 +12,32 @@ public class SpikeController : MonoBehaviour
     private float trapCounter = 0.0f;
     public Animator trapAnimation;
 
+    private bool coroutineRunning = false;
+
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(trapAnimation.GetBool("trigger"));
-        if (!this.active) {
-            Debug.Log(this.counter);
-            this.counter++;
-            if (this.counter >= resetTime * 60) {
-                this.active = true;
-                this.counter = 0;
-            }
+        if (trapAnimation.GetBool("trigger") && !this.coroutineRunning) {
+           StartCoroutine(activateTrap());
+           this.coroutineRunning = true;
         }
-        else if (trapAnimation.GetBool("trigger")) {
-            this.trapCounter++;
-            if (this.trapCounter >= 150) {
-                this.active = false;
-                this.trapAnimation.SetBool("trigger", false);
-            }
-        }
+    }
+
+    private IEnumerator activateTrap(){
+        yield return new WaitForSeconds(2.6f);
+        this.active = true;
+        this.trapAnimation.SetBool("trigger", false);
+        this.coroutineRunning = false;
+        GetComponent<BoxCollider>().enabled = true;
     }
 
     private void OnTriggerEnter(Collider other) {
         if (other.tag == "Robot") {
             if (this.active) {
-                other.gameObject.GetComponent<RobotController>().TakeDamage(this.damage, other.gameObject);
                 trapAnimation.SetBool("trigger", true);
+                other.gameObject.GetComponent<RobotController>().TakeDamage(this.damage, other.gameObject);
+                GetComponent<BoxCollider>().enabled = false;
+                this.active = false;
             }
         }
     }
