@@ -9,6 +9,7 @@ TagManager:
   - Canvas
   - Shop
   - Help
+  - Rain
   layers:
   - Default
   - TransparentFX
