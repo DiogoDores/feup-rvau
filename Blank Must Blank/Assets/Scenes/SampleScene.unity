@@ -530,6 +530,12 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!198 &96435745 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 2152486072598209551, guid: 60303938208e1104eb1e4b8263280966,
+    type: 3}
+  m_PrefabInstance: {fileID: 1297395223}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &98828559 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8828973311536583221, guid: 6b45e62ca94d8f44aab050f61a70d6b9,
@@ -4713,7 +4719,7 @@ PrefabInstance:
     - target: {fileID: 3118681633895894461, guid: 60303938208e1104eb1e4b8263280966,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.893
+      value: 2.48
       objectReference: {fileID: 0}
     - target: {fileID: 3118681633895894461, guid: 60303938208e1104eb1e4b8263280966,
         type: 3}
@@ -7373,6 +7379,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pollingRate: 60
   rainParticles: {fileID: 931955103}
+  cloudParticles: {fileID: 96435745}
 --- !u!21 &1890484550
 Material:
   serializedVersion: 6
