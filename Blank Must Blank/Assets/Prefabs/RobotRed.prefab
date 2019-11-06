@@ -59,7 +59,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 2.625
+  m_Speed: 3.75
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -86,6 +86,7 @@ MonoBehaviour:
   riftTransform: {fileID: 3780520269709162161, guid: 1b057b0f516ed284ca7e19caf5df8a59,
     type: 3}
   health: 50
+  currentHealth: 0
   bounty: 5
   boltParticles: {fileID: 965519426509304242, guid: cd753bc5ce2476f4393ec49645df0af8,
     type: 3}
