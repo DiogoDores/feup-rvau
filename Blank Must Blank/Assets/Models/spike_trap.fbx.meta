@@ -18,7 +18,17 @@ ModelImporter:
   - first:
       74: 2897408184115956632
     second: Spikes|CylinderAction.001
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: f8dacbc8188ce0546b144bd9c68c8ec0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: 7c36a894976ac9b4ca15905564aa780c, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
