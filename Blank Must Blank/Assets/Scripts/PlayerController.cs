@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour {
     private ShopController shopController;
 
     private int health = 100;
-    private int cogs;
+    private int cogs = 50;
 
     public List<Trap> traps = new List<Trap>();
 
@@ -43,8 +43,8 @@ public class PlayerController : MonoBehaviour {
     public void ShopTrap(Trap.Type trapType, bool isPurchase) {
         Trap trap = this.traps.Find(t => t.type == trapType);
 
-        if (isPurchase && this.cogs < 0) {
-            //Debug.Log("Not enough money!");
+        if (isPurchase && this.cogs - trap.cost < 0) {
+            Debug.Log("Not enough money!");
             return;
         }
 
