@@ -96,8 +96,8 @@ public class WaveController : MonoBehaviour {
 
     public IEnumerator StartSpawningRobots(RobotSettings robot) {
         while (true) {
-            this.pooler.SpawnFromPool(robot.tag, this.spawnPoint.position, Quaternion.identity);
             yield return new WaitForSeconds(robot.spawnRate);
+            this.pooler.SpawnFromPool(robot.tag, this.spawnPoint.position, Quaternion.identity);
         }
     } 
 
