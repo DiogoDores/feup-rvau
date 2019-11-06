@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Vuforia;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
     public Canvas canvas, shop;
@@ -85,8 +86,9 @@ public class PlayerController : MonoBehaviour {
     public void UpdateHealth(int value) {
         
         // Handle negative values.
-        if (this.health - value < 0) {
+        if (this.health - value <= 0) {
             this.health = 0;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         } else {
             this.health -= value;
         }

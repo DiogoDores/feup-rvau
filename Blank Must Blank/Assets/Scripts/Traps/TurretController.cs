@@ -50,7 +50,7 @@ public class TurretController : MonoBehaviour {
             if (this.target != null) {
                 this.target.GetComponent<RobotController>().TakeDamage(this.damage, gameObject);
             }
-            yield return new WaitForSeconds(2.9f);
+            yield return new WaitForSeconds(0.5f);
         }
     }
 }

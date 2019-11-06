@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RiftController : MonoBehaviour {
-    public int playerHP = 10;
+    public int riftDamage;
     private PlayerController player;
 
     private void Start() {
@@ -12,7 +13,7 @@ public class RiftController : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other) {
         if (other.tag == "Robot") {
-            this.player.UpdateHealth(10);
+            this.player.UpdateHealth(this.riftDamage);
         }
     }
 }
