@@ -1,7 +1,7 @@
 import argparse
 import numpy as np
 import cv2
-import matplotlib.pylab as plt
+#import matplotlib.pylab as plt
 
 # construct the argument parser and parse the arguments
 ap = argparse.ArgumentParser()
