@@ -31,15 +31,15 @@ if __name__ == '__main__':
     pts_field = get_four_points(im_dst)
     print(pts_field)
 
-    # Get offside player
+    """# Get offside player
     print('Select the offside player and then press ENTER')
     point = get_player(im_dst)
-    print(point)
+    print(point)"""
 
     # Create a vector of source points.
     pts_dst = np.array(
         [
-            [point[0][0] - 0.5, point[0] - 0.5, pts_field[0][1]],
+            [pts_field[0][0] - 0.5, pts_field[0] - 0.5, pts_field[0][1]],
             [size[1] - 1, 0],
             [size[1] - 1, size[0] - 1],
             [0, size[0] - 1]
