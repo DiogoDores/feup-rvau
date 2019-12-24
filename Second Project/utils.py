@@ -7,11 +7,10 @@ def mouse_handler(event, x, y, flags, data):
     if event == cv2.EVENT_LBUTTONDOWN:
         cv2.circle(data['im'], (x, y), 3, (0, 0, 255), 5, 16)
         cv2.imshow("Image", data['im'])
-        if len(data['points']) < 4:
-            data['points'].append([x, y])
+        data['points'].append([x, y])
 
 
-def get_four_points(im):
+def get_field_points(im):
 
     # Set up data to send to mouse handler
     data = {}
