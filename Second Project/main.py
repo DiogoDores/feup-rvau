@@ -62,10 +62,10 @@ if __name__ == '__main__':
     pts_src = get_field_points(im_src)
     print(pts_src)
 
-    """# Get offside player
+    # Get offside player
     print('Select the offside player and then press ENTER')
-    point = get_player(im_dst)
-    print(point)"""
+    point = get_player(im_src)
+    print(point[0][0])
 
     height = int(im_dst.shape[0] * 20 / 100)
     width = int(im_dst.shape[1] * 20 / 100)
@@ -80,12 +80,21 @@ if __name__ == '__main__':
         im_src, h, (im_dst.shape[1], im_dst.shape[0]))
 
     # Black out polygonal area in destination image.
-    cv2.fillConvexPoly(im_dst, pts_dst.astype(int), 0)
+    cv2.fillConvexPoly(im_dst, np.array([[0, 0], [size[1], 0], [
+                       size[1], size[0]], [0, size[0]]], dtype=float).astype(int), 0)
 
     # Add warped source image to destination image.
     im_dst = im_dst + im_temp
 
     # Display image.
-
     cv2.imshow("Image", im_dst)
+
+
+    #TODO - ADAPT PLAYER POINT TO NEW HOMOGRAPHY
+    im_dst = cv2.line(im_dst, (point[0][1].astype(int), 0), (
+                      point[0][1].astype(int), size[0]), (255, 0, 0), 4)
+    cv2.imshow("Image", im_dst)
+
+    #TODO - INVERSE HOMOGRAPHY AKA GET FINAL IMAGE
+
     cv2.waitKey(0)
