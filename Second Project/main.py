@@ -8,7 +8,6 @@ import sys
 
 
 def get_blue_points(img):
-
     scale_percent = 20
     height = int(img.shape[0] * scale_percent / 100)
     width = int(img.shape[1] * scale_percent / 100)
@@ -29,8 +28,8 @@ def get_blue_points(img):
 
     blue_points = []
 
-    contours, hierarchy = cv2.findContours(
-        mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    contours, hierarchy = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+
     for c in contours:
         x, y, w, h = cv2.boundingRect(c)
         blue_points.append([int(round(x + w/2)), int(round(y + h/2))])
@@ -64,8 +63,8 @@ if __name__ == '__main__':
 
     # Get offside player
     print('Select the offside player and then press ENTER')
-    point = get_player(im_src)
-    print(point[0][0])
+    player = get_player(im_src)
+    print(player)
 
     height = int(im_dst.shape[0] * 20 / 100)
     width = int(im_dst.shape[1] * 20 / 100)
@@ -75,7 +74,7 @@ if __name__ == '__main__':
     # Calculate Homography between source and destination points
     h, status = cv2.findHomography(pts_src, pts_dst)
 
-    # Warp source image
+    # Warp source image to fit the Illustrator one.
     im_temp = cv2.warpPerspective(
         im_src, h, (im_dst.shape[1], im_dst.shape[0]))
 
@@ -89,20 +88,27 @@ if __name__ == '__main__':
     # Display image.
     cv2.imshow("Image", im_dst)
 
-    # TODO - ADAPT PLAYER POINT TO NEW HOMOGRAPHY
-    im_dst = cv2.line(im_dst, (point[0][1].astype(int), 0), (
-                      point[0][1].astype(int), size[0]), (255, 0, 0), 4)
-    cv2.imshow("Image", im_dst)
+    # Convert player based on perspective transform.
+    player_new = cv2.perspectiveTransform(np.array([player]), h)
+    player_new = [[(player_new[0][0][0]), 0.0], [(player_new[0][0][0]), size[0]]]
 
-    # TODO - INVERSE HOMOGRAPHY AKA GET FINAL IMAGE
-    H_inv, status = cv2.findHomography(pts_dst, pts_src)
+    print(player_new)
+
+    h_inv, status = cv2.findHomography(pts_dst, pts_src)
+    player_best = cv2.perspectiveTransform(np.array([player_new]), h_inv)
+    print(player_best)
+
+    #player_new = cv2.perspectiveTransform(np.array([player]), h_inv)
 
     # Warp source image
-    im_temp = cv2.warpPerspective(
-        im_dst, H_inv, (im_src.shape[1], im_src.shape[0]))
+    #im_temp = cv2.warpPerspective(im_dst, h_inv, (im_src.shape[1], im_src.shape[0]))
+    #im_src = im_temp
 
-    im_src = im_temp
+    player_p1, player_p2 = player_best[0].astype(int)
+    print(player_p1, player_p2)
 
+    
+    im_dst = cv2.line(im_src, (player_p1[0], player_p1[1]), (player_p2[0], player_p2[1]), (255, 0, 0), 4)
     cv2.imshow("Image", im_src)
 
     cv2.waitKey(0)
