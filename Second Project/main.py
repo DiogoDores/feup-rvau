@@ -89,12 +89,20 @@ if __name__ == '__main__':
     # Display image.
     cv2.imshow("Image", im_dst)
 
-
-    #TODO - ADAPT PLAYER POINT TO NEW HOMOGRAPHY
+    # TODO - ADAPT PLAYER POINT TO NEW HOMOGRAPHY
     im_dst = cv2.line(im_dst, (point[0][1].astype(int), 0), (
                       point[0][1].astype(int), size[0]), (255, 0, 0), 4)
     cv2.imshow("Image", im_dst)
 
-    #TODO - INVERSE HOMOGRAPHY AKA GET FINAL IMAGE
+    # TODO - INVERSE HOMOGRAPHY AKA GET FINAL IMAGE
+    H_inv, status = cv2.findHomography(pts_dst, pts_src)
+
+    # Warp source image
+    im_temp = cv2.warpPerspective(
+        im_dst, H_inv, (im_src.shape[1], im_src.shape[0]))
+
+    im_src = im_temp
+
+    cv2.imshow("Image", im_src)
 
     cv2.waitKey(0)
