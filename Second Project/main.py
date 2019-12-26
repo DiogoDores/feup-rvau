@@ -3,10 +3,11 @@
 import cv2
 import numpy as np
 import argparse
+import math
 from utils import *
 
 import sys
-
+font = cv2.FONT_HERSHEY_SIMPLEX
 
 def get_blue_points(img):
     scale_percent = 20
@@ -35,7 +36,7 @@ def get_blue_points(img):
     for c in contours:
         x, y, w, h = cv2.boundingRect(c)
         blue_points.append([int(round(x + w/2)), int(round(y + h/2))])
-        font = cv2.FONT_HERSHEY_SIMPLEX
+        
         cv2.putText(img, str(index), (int(round(x + w/2)), int(round(y + h/2))),
                     font, 0.5, (255, 255, 255), 2, cv2.LINE_AA)
         cv2.rectangle(blue, (x, y), (x + w, y + h), (0, 0, 255), 1)
@@ -44,7 +45,6 @@ def get_blue_points(img):
     cv2.imshow("Field", img)
 
     return blue_points
-
 
 if __name__ == '__main__':
 
@@ -76,6 +76,11 @@ if __name__ == '__main__':
     print('Select the offside player and then press ENTER')
     player = get_player(im_src)
 
+    #Get Goal if mode is 3
+    if mode == 3:
+        print('Select the middle of the goal line')
+        goal = get_player(im_src)
+
     height = int(im_dst.shape[0] * 20 / 100)
     width = int(im_dst.shape[1] * 20 / 100)
     dim = (width, height)
@@ -97,12 +102,10 @@ if __name__ == '__main__':
 
     # Convert player based on perspective transform.
     player_new = cv2.perspectiveTransform(np.array([player]), h)
-    print(player_new)
 
     if mode == 1:
         player_new = [[(player_new[0][0][0]), 0.0], [
             (player_new[0][0][0]), size[0]]]
-        print(player_new)
     elif mode == 2:
         x = (player_new[0][0][0])
         y = (player_new[0][0][1])
@@ -111,10 +114,27 @@ if __name__ == '__main__':
         radius_px = delta * 9.15 / 16.5
         player_new = [[x - radius_px, y - radius_px], [x + radius_px, y - radius_px],
                       [x + radius_px, y + radius_px], [x - radius_px, y + radius_px]]
+    elif mode == 3:
+        x = (player_new[0][0][0])
+        y = (player_new[0][0][1])
+
+        player_new = [[x,y]]
+        goal_new = cv2.perspectiveTransform(np.array([goal]), h)
+        
+        x2 = (goal_new[0][0][0])
+        y2 = (goal_new[0][0][1])
+
+        goal_new = [[x2,y2]]
+
+        dist = math.sqrt((x-x2)**2 + (y-y2)**2)
+        delta = abs(pts_dst[6][0] - pts_dst[7][0])
+        real_dist = dist * 16.5 / delta
 
     h_inv, status = cv2.findHomography(pts_dst, pts_src)
     player_best = cv2.perspectiveTransform(np.array([player_new]), h_inv)
-    print(player_best)
+
+    if mode == 3:
+        goal_best = cv2.perspectiveTransform(np.array([goal_new]), h_inv)
 
     #player_new = cv2.perspectiveTransform(np.array([player]), h_inv)
 
@@ -124,7 +144,6 @@ if __name__ == '__main__':
 
     if mode == 1:
         player_p1, player_p2 = player_best[0].astype(int)
-        print(player_p1, player_p2)
 
         im_name = "Offside"
         im_dst = cv2.line(
@@ -135,6 +154,15 @@ if __name__ == '__main__':
 
         im_name = "Free kick"
         im_dst = cv2.ellipse(im_src, box, (255, 0, 0), 2)
+    elif mode == 3:
+        player_p1 = player_best[0].astype(int)
+        player_p2 = goal_best[0].astype(int)
+        im_name = "Distance"
+
+        im_dst = cv2.arrowedLine(im_src, (player_p1[0][0], player_p1[0][1]), (player_p2[0][0], player_p2[0][1]), (255,0,0), 2, cv2.LINE_AA, 0, 0.05)
+        im_dst = cv2.arrowedLine(im_src, (player_p2[0][0], player_p2[0][1]), (player_p1[0][0], player_p1[0][1]), (255,0,0), 2, cv2.LINE_AA, 0, 0.05)
+        cv2.putText(im_src, "{} meters".format(round(float(real_dist),1)), (120,120),
+                    font, 0.5, (255, 255, 255), 2, cv2.LINE_AA)
 
     cv2.imshow(im_name, im_src)
 
