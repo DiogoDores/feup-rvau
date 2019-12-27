@@ -41,7 +41,7 @@ def get_blue_points(img):
     for c in contours:
         x, y, w, h = cv2.boundingRect(c)
         blue_points.append([int(round(x + w/2)), int(round(y + h/2))])
-        
+
         cv2.putText(img, str(index), (int(round(x + w/2)), int(round(y + h/2))),
                     font, 0.5, (255, 255, 255), 2, cv2.LINE_AA)
         cv2.rectangle(blue, (x, y), (x + w, y + h), (0, 0, 255), 1)
@@ -50,6 +50,7 @@ def get_blue_points(img):
     cv2.imshow("Field", img)
 
     return blue_points
+
 
 if __name__ == '__main__':
 
@@ -81,7 +82,7 @@ if __name__ == '__main__':
     print('Select the offside player and then press ENTER')
     player = get_player(im_src)
 
-    #Get Goal if mode is 3
+    # Get Goal if mode is 3
     if mode == 3:
         print('Select the middle of the goal line')
         goal = get_player(im_src)
@@ -126,13 +127,13 @@ if __name__ == '__main__':
         x = (player_new[0][0][0])
         y = (player_new[0][0][1])
 
-        player_new = [[x,y]]
+        player_new = [[x, y]]
         goal_new = cv2.perspectiveTransform(np.array([goal]), h)
-        
+
         x2 = (goal_new[0][0][0])
         y2 = (goal_new[0][0][1])
 
-        goal_new = [[x2,y2]]
+        goal_new = [[x2, y2]]
 
         dist = math.sqrt((x-x2)**2 + (y-y2)**2)
         delta = abs(pts_dst[6][0] - pts_dst[7][0])
@@ -170,9 +171,11 @@ if __name__ == '__main__':
         player_p2 = goal_best[0].astype(int)
         im_name = "Distance"
 
-        im_dst = cv2.arrowedLine(im_src, (player_p1[0][0], player_p1[0][1]), (player_p2[0][0], player_p2[0][1]), (255,0,0), 2, cv2.LINE_AA, 0, 0.05)
-        im_dst = cv2.arrowedLine(im_src, (player_p2[0][0], player_p2[0][1]), (player_p1[0][0], player_p1[0][1]), (255,0,0), 2, cv2.LINE_AA, 0, 0.05)
-        cv2.putText(im_src, "{} meters".format(round(float(real_dist),1)), (120,120),
+        im_dst = cv2.arrowedLine(im_src, (player_p1[0][0], player_p1[0][1]), (
+            player_p2[0][0], player_p2[0][1]), (255, 0, 0), 2, cv2.LINE_AA, 0, 0.05)
+        im_dst = cv2.arrowedLine(im_src, (player_p2[0][0], player_p2[0][1]), (
+            player_p1[0][0], player_p1[0][1]), (255, 0, 0), 2, cv2.LINE_AA, 0, 0.05)
+        cv2.putText(im_src, "{} meters".format(round(float(real_dist), 1)), (120, 120),
                     font, 0.5, (255, 255, 255), 2, cv2.LINE_AA)
 
     im_src = cv2.bitwise_or(im_src, fg_back_inv)
