@@ -9,6 +9,11 @@ from utils import *
 import sys
 font = cv2.FONT_HERSHEY_SIMPLEX
 
+def get_player_mask(img):
+    hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+    mask = cv2.inRange(hsv, (25, 20, 100), (70, 255, 255))
+    return cv2.bitwise_not(mask)
+
 def get_blue_points(img):
     scale_percent = 20
     height = int(img.shape[0] * scale_percent / 100)
@@ -103,6 +108,9 @@ if __name__ == '__main__':
     # Convert player based on perspective transform.
     player_new = cv2.perspectiveTransform(np.array([player]), h)
 
+    # Get player mask.
+    player_mask = get_player_mask(im_src)
+
     if mode == 1:
         player_new = [[(player_new[0][0][0]), 0.0], [
             (player_new[0][0][0]), size[0]]]
@@ -142,18 +150,21 @@ if __name__ == '__main__':
     #im_temp = cv2.warpPerspective(im_dst, h_inv, (im_src.shape[1], im_src.shape[0]))
     #im_src = im_temp
 
+    fg_back_inv = cv2.bitwise_and(im_src, im_src, mask=player_mask)
+
     if mode == 1:
         player_p1, player_p2 = player_best[0].astype(int)
-
         im_name = "Offside"
-        im_dst = cv2.line(
-            im_src, (player_p1[0], player_p1[1]), (player_p2[0], player_p2[1]), (255, 0, 0), 2)
+
+        im_src = cv2.line(im_src, (player_p1[0], player_p1[1]), (player_p2[0], player_p2[1]), (255, 0, 0), 2)
+
     elif mode == 2:
         player_best = player_best[0].astype(int)
         box = cv2.minAreaRect(player_best)
-
         im_name = "Free kick"
-        im_dst = cv2.ellipse(im_src, box, (255, 0, 0), 2)
+
+        im_src = cv2.ellipse(im_src, box, (255, 0, 0), 2)
+
     elif mode == 3:
         player_p1 = player_best[0].astype(int)
         player_p2 = goal_best[0].astype(int)
@@ -164,6 +175,7 @@ if __name__ == '__main__':
         cv2.putText(im_src, "{} meters".format(round(float(real_dist),1)), (120,120),
                     font, 0.5, (255, 255, 255), 2, cv2.LINE_AA)
 
+    im_src = cv2.bitwise_or(im_src, fg_back_inv)
     cv2.imshow(im_name, im_src)
 
     cv2.waitKey(0)
