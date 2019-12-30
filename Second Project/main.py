@@ -9,6 +9,20 @@ from utils import *
 import sys
 font = cv2.FONT_HERSHEY_SIMPLEX
 
+def get_homography_points(pts_src, pts_dst):
+    removable = []
+
+    for i, pt_src in enumerate(pts_src):
+        if all(a == -1 for a in pt_src): 
+            removable.append(i)
+    
+    pts_src = [pt_src for pt_src in pts_src if any(a != -1 for a in pt_src)]
+    pts_src = np.vstack(pts_src).astype(float)
+
+    pts_dst = np.delete(pts_dst, removable, 0)
+
+    return pts_src, pts_dst
+
 def get_player_mask(img):
     hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
     mask = cv2.inRange(hsv, (25, 20, 100), (70, 255, 255))
@@ -75,8 +89,11 @@ if __name__ == '__main__':
     size = im_src.shape
 
     # Get four corners of the field
-    print('Select the homography points of the field and then press ENTER')
+    print('Select the homography points of the field and then press ENTER\nUsage: LMB to select a point, RMB to ignore if not found.')
     pts_src = get_field_points(im_src)
+
+    # Remove invalid coordinates (due to ignoring points) from point lists.
+    pts_src, pts_dst = get_homography_points(pts_src, pts_dst)
 
     # Get offside player
     print('Select the offside player and then press ENTER')
